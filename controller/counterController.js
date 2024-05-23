@@ -21,12 +21,11 @@ const addCount = async (req, res) => {
 // Decrement counter
 const decreaseCount = async (req, res) => {
     let countData = await Count.find();
-    if (countData.length > 0) {
+    if (countData[0].count > 0) {
         countData[0].count--;
         await countData[0].save();
         return res.send({ status: true, count: countData[0].count });
     }
-    
 }
 
 
